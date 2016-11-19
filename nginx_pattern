@@ -1,0 +1,3 @@
+NGUSERNAME [a-zA-Z\.\@\-\+_%]+
+NGUSER %{NGUSERNAME}
+NGINXACCESS %{IPORHOST:clientip} %{NGUSER} %{NGUSER} \[%{HTTPDATE:rq_time}\] "%{WORD:http_method} %{URIPATH:http_path}(%{URIPARAM:request})? HTTP/%{NUMBER}" %{NUMBER:http_response_code} (?:%{NUMBER:bytes}|-) (?:"(?:%{URI}|-)"|%{QS}) (?:%{QS:agent})
